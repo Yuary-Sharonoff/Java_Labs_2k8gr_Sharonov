@@ -12,7 +12,9 @@ public class Main {
             String[] parts = arg.split("/");
             if (parts[0].equals("Cheese")) {
                 breakfast[itemsSoFar] = new Cheese();
-            } //
+            } else if (parts[0].equals("Apple")) {
+                breakfast[itemsSoFar] = new Apple(parts[1]);
+            }
 
             itemsSoFar++;
         }
