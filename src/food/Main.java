@@ -6,6 +6,8 @@ public class Main {
         int itemsSoFar = 10;
         int CheeseAm = 5, AppleAm = 3, MilkAm = 2;
         Cheese Ch = new Cheese();
+        Milk Mi = new Milk(null);
+        Apple Ap = new Apple(null);
 
 
         for (String arg : args) {
@@ -14,7 +16,10 @@ public class Main {
                 breakfast[itemsSoFar] = new Cheese();
             } else if (parts[0].equals("Apple")) {
                 breakfast[itemsSoFar] = new Apple(parts[1]);
+            }if (parts[0].equals("Milk")) {
+                breakfast[itemsSoFar] = new Milk(parts[1]);
             }
+
 
             itemsSoFar++;
         }
@@ -23,10 +28,16 @@ public class Main {
             if (breakfast[i] != null) {
                 if (breakfast[i].equals(Ch)) {
                     CheeseAm++;
-                }//
+                }else if (breakfast[i].equals(Ap)) {
+                    AppleAm++;
+                } else if (breakfast[i].equals(Mi)) {
+                    MilkAm++;
+                }
+
+
             } else break;
         }
-        System.out.println( " Amount of cheese is "  + "");
+        System.out.println( " Amount of cheese is " + CheeseAm  +  ", Amount of apples is " + AppleAm +  ", Amount of milk is " + MilkAm+ "");
         for (Food item : breakfast) {
             if (item != null) {
                 item.consume();
